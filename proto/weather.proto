@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package weather;
+option go_package="proto/";
+
+message WeatherRequest{
+  string location = 1;
+}
+
+message WeatherResponse {
+  uint64 temperature = 2;
+}
+
+service WeatherService{
+  rpc GetCurrentWeather (WeatherRequest) returns (WeatherResponse){};
+}
